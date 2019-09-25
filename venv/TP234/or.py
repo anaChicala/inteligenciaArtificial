@@ -30,10 +30,10 @@ def calculoSalida():
 
     print("Termino un ciclo")
 
-def calculoPesos(i, entrada):
-    arrayPesos[0] = arrayPesos[0] + alfa * (salidaEsperada[i] - resultado[i]) * entrada[0]
-    arrayPesos[1] = arrayPesos[1] + alfa * (salidaEsperada[i] - resultado[i]) * entrada[1]
-    arrayPesos[2] = arrayPesos[2] + alfa * (salidaEsperada[i] - resultado[i]) * entrada[2]
+    def calculoPesos(i, entrada):
+        arrayPesos[0] = arrayPesos[0] + alfa * (salidaEsperada[i] - resultado[i]) * entrada[0]
+        arrayPesos[1] = arrayPesos[1] + alfa * (salidaEsperada[i] - resultado[i]) * entrada[1]
+        arrayPesos[2] = arrayPesos[2] + alfa * (salidaEsperada[i] - resultado[i]) * entrada[2]
 
 def controlError(error):
     print("Errores:", errores)

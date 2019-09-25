@@ -30,7 +30,6 @@ def calculoSalida():
         # else:
         #     resultado[i] = 0
 
-        errores[i] = salidaEsperada[i]-resultado[i]
 
         calculoPesos(i, entrada)
         i = i+1
