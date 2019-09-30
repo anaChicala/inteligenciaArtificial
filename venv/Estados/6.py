@@ -32,29 +32,49 @@ class Tablero:
         self.board = np.zeros((ancho, largo))
 
     def definirParedes(self):
-        self.board.itemset((0,0),-1)
-        self.board.itemset((0, 1), -1)
-        self.board.itemset((0, 8), -1)
-        self.board.itemset((1, 0), -1)
-        self.board.itemset((1, 1), -1)
-        self.board.itemset((1, 8), -1)
-        self.board.itemset((3, 0), -1)
-        self.board.itemset((3, 3), -1)
-        self.board.itemset((3, 4), -1)
-        self.board.itemset((3, 5), -1)
-        self.board.itemset((3, 7), -1)
-        self.board.itemset((3, 8), -1)
-        self.board.itemset((4, 5), -1)
-        self.board.itemset((4, 7), -1)
-        self.board.itemset((5, 7), -1)
-        self.board.itemset((6, 2), -1)
-        self.board.itemset((6, 7), -1)
-        self.board.itemset((7, 1), -1)
-        self.board.itemset((7, 2), -1)
-        self.board.itemset((8, 2), -1)
-        self.board.itemset((8, 7), -1)
+        # self.board.itemset((0,0),-1)
+        # self.board.itemset((0, 1), -1)
+        # self.board.itemset((0, 8), -1)
+        # self.board.itemset((1, 0), -1)
+        # self.board.itemset((1, 1), -1)
+        # self.board.itemset((1, 8), -1)
+        # self.board.itemset((3, 0), -1)
+        # self.board.itemset((3, 3), -1)
+        # self.board.itemset((3, 4), -1)
+        # self.board.itemset((3, 5), -1)
+        # self.board.itemset((3, 7), -1)
+        # self.board.itemset((3, 8), -1)
+        # self.board.itemset((4, 5), -1)
+        # self.board.itemset((4, 7), -1)
+        # self.board.itemset((5, 7), -1)
+        # self.board.itemset((6, 2), -1)
+        # self.board.itemset((6, 7), -1)
+        # self.board.itemset((7, 1), -1)
+        # self.board.itemset((7, 2), -1)
+        # self.board.itemset((8, 2), -1)
+        # self.board.itemset((8, 7), -1)
+        # self.board.itemset((8, 8), -1)
+        # self.board.itemset((8, 9), -1)
+
+        self.board.itemset((10, 2), -1)
+        self.board.itemset((11, 2), -1)
+        self.board.itemset((12, 2), -1)
+        self.board.itemset((13, 2), -1)
+        self.board.itemset((14, 2), -1)
+        self.board.itemset((15, 2), -1)
+        self.board.itemset((16, 2), -1)
+        self.board.itemset((17, 2), -1)
+        self.board.itemset((18, 2), -1)
+        self.board.itemset((19, 2), -1)
+        self.board.itemset((10, 3), -1)
+        self.board.itemset((10, 4), -1)
+        self.board.itemset((10, 5), -1)
+        self.board.itemset((5, 5), -1)
+        self.board.itemset((5, 6), -1)
+        self.board.itemset((7, 8), -1)
         self.board.itemset((8, 8), -1)
-        self.board.itemset((8, 9), -1)
+        self.board.itemset((9, 8), -1)
+        self.board.itemset((9, 9), -1)
 
     def verTablero(self):
         return self.board
@@ -62,19 +82,23 @@ class Tablero:
 
 if __name__ == '__main__':
 
-    tablero = Tablero(10,10)
+    # tablero = Tablero(10,10)
+    tablero = Tablero(20, 20)
     tablero.definirParedes()
     print(tablero.verTablero())
 
 
 
 
-    nodoInicial = Nodo(0, 4, (5,4), (5,4))
-    nodoFinal = Nodo(0, 0, (1,4),(1,4))
+    # nodoInicial = Nodo(0, 4, (5,4), (5,4))
+    # nodoFinal = Nodo(0, 0, (1,4),(1,4))
+    nodoInicial = Nodo(0, 16, (15,3), (15,3))
+    nodoFinal = Nodo(0, 0, (4,8),(4,8))
+
+
     board = tablero.verTablero()
     listaAbierta = [nodoInicial]
     listaCerrada = []
-    listaDelCamino = []
 
     ok = False
     i = 0
@@ -120,8 +144,11 @@ if __name__ == '__main__':
             # Eliminamos de la lista los nodos que corresponden a alguna pared
             index = 0
             for elemento in arregloDeNodos:
-                if (board.item(elemento.verPosicion()) == -1):
-                    arregloDeNodos.pop(index)
+                if(elemento.verPosicion()[0]==20 or elemento.verPosicion()[1]==20 ):
+                    pass
+                else:
+                    if (board.item(elemento.verPosicion()) == -1):
+                        arregloDeNodos.pop(index)
                 index = index + 1
 
             # Seteamos el costo y la distancia de cada uno de los nodos
@@ -162,14 +189,14 @@ if __name__ == '__main__':
             numPasada = len(listaAbierta) - 1
             while numPasada > 0 and intercambios:
                 intercambios = False
-                for i in range(numPasada):
-                    costoTotal = listaAbierta[i].verDistancia() + listaAbierta[i].verCosto()
+                for j in range(numPasada):
+                    costoTotal = listaAbierta[j].verDistancia() + listaAbierta[j].verCosto()
                     # print(costoTotal)
-                    if costoTotal > (listaAbierta[i+1].verDistancia() + listaAbierta[i+1].verCosto()):
+                    if costoTotal > (listaAbierta[j+1].verDistancia() + listaAbierta[j+1].verCosto()):
                         intercambios = True
-                        temp = listaAbierta[i]
-                        listaAbierta[i] = listaAbierta[i + 1]
-                        listaAbierta[i + 1] = temp
+                        temp = listaAbierta[j]
+                        listaAbierta[j] = listaAbierta[j + 1]
+                        listaAbierta[j + 1] = temp
                 numPasada = numPasada - 1
 
             # for elemento in listaAbierta:
@@ -177,8 +204,6 @@ if __name__ == '__main__':
 
 
             i = i + 1
+            print("Ciclo: ", i+1)
             # listaDelCamino.append(listaAbierta[0])
 
-    print("Encontramos el camino: ")
-    # for elemento in listaDelCamino:
-    #     print(elemento.verPosicion())
