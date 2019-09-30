@@ -108,14 +108,14 @@ if __name__ == '__main__':
         listaAbierta.pop(0)
         listaCerrada.append(a)
 
-        adelante = Nodo(0,0, (a.verPosicion()[0] - 1,a.verPosicion()[1] ), a.verPosicion())
-        diagonalAdelante1 = Nodo(0,0, (a.verPosicion()[0] - 1,a.verPosicion()[1] - 1 ), a.verPosicion())
-        diagonalAdelante2 = Nodo(0,0, (a.verPosicion()[0] - 1,a.verPosicion()[1] + 1), a.verPosicion())
-        atras =Nodo(0,0, (a.verPosicion()[0] + 1,a.verPosicion()[1]), a.verPosicion())
-        diagonalAtras1 = Nodo(0,0, (a.verPosicion()[0] + 1,a.verPosicion()[1] -1 ), a.verPosicion())
-        diagonalAtras2 =Nodo(0,0, (a.verPosicion()[0] + 1,a.verPosicion()[1] +1 ), a.verPosicion())
-        ladoIzquierdo = Nodo(0,0, (a.verPosicion()[0] ,a.verPosicion()[1] -1), a.verPosicion())
-        ladoDerecho = Nodo(0,0, (a.verPosicion()[0] ,a.verPosicion()[1] +1), a.verPosicion())
+        adelante = Nodo(0, 0, (a.verPosicion()[0] - 1, a.verPosicion()[1]), a.verPosicion())
+        diagonalAdelante1 = Nodo(0, 0, (a.verPosicion()[0] - 1, a.verPosicion()[1] - 1), a.verPosicion())
+        diagonalAdelante2 = Nodo(0, 0, (a.verPosicion()[0] - 1, a.verPosicion()[1] + 1), a.verPosicion())
+        atras = Nodo(0, 0, (a.verPosicion()[0] + 1, a.verPosicion()[1]), a.verPosicion())
+        diagonalAtras1 = Nodo(0, 0, (a.verPosicion()[0] + 1, a.verPosicion()[1] - 1), a.verPosicion())
+        diagonalAtras2 = Nodo(0, 0, (a.verPosicion()[0] + 1, a.verPosicion()[1] + 1), a.verPosicion())
+        ladoIzquierdo = Nodo(0, 0, (a.verPosicion()[0], a.verPosicion()[1] - 1), a.verPosicion())
+        ladoDerecho = Nodo(0, 0, (a.verPosicion()[0], a.verPosicion()[1] + 1), a.verPosicion())
 
 
         arregloDeNodos = [adelante, diagonalAdelante1,diagonalAdelante2,atras,diagonalAtras1, diagonalAtras2, ladoIzquierdo,ladoDerecho]
@@ -145,7 +145,7 @@ if __name__ == '__main__':
             index = 0
             for elemento in arregloDeNodos:
                 if(elemento.verPosicion()[0]==20 or elemento.verPosicion()[1]==20 ):
-                    pass
+                    arregloDeNodos.pop(index)
                 else:
                     if (board.item(elemento.verPosicion()) == -1):
                         arregloDeNodos.pop(index)
@@ -154,15 +154,10 @@ if __name__ == '__main__':
             # Seteamos el costo y la distancia de cada uno de los nodos
             index = 0
             for elemento in arregloDeNodos:
-                # print(elemento.verPosicion())
-                # print("X Final: ",nodoFinal.verPosicion()[0])
-                # print("X Elemento: ",elemento.verPosicion()[0])
-                # print("Y Final: ",nodoFinal.verPosicion()[1])
-                # print("Y Elemento: ",elemento.verPosicion()[1])
 
                 elemento.setearDistancia((abs((nodoFinal.verPosicion()[0]) - (elemento.verPosicion()[0])) + abs((nodoFinal.verPosicion()[1]) - (elemento.verPosicion()[1]))))
                 elemento.setearCosto(i+1)
-                print("Costo: ", elemento.verDistancia())
+                print("Distancia: ", elemento.verDistancia())
                 pass
 
             for e in arregloDeNodos:
@@ -199,11 +194,7 @@ if __name__ == '__main__':
                         listaAbierta[j + 1] = temp
                 numPasada = numPasada - 1
 
-            # for elemento in listaAbierta:
-            #     print(elemento.verCosto()+elemento.verDistancia())
 
-
-            i = i + 1
-            print("Ciclo: ", i+1)
-            # listaDelCamino.append(listaAbierta[0])
+        i = i + 1
+        print("Ciclo: ", i+1)
 
