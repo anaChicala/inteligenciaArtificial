@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8e8c753f-0ced-4b3e-bac2-10b113ef9e12" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/pruebaIA.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/pruebaIA.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Estados/6.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Hopfield/Hopfield.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Hopfield/Hopfield.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/TP234/3.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/TP234/3.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/TP234/or.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/TP234/or.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
